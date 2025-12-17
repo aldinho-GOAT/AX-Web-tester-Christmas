@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AX-Editor | Newest Edition</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+    
+    <aside class="sidebar">
+        <div class="logo-area">
+            <div class="logo-icon">X</div>
+            <div class="logo-title">AX-Editor</div>
+        </div>
+
+        <nav class="side-nav">
+            <a href="#" class="nav-item active run-btn" data-action="run"><i class="fas fa-code"></i> Run</a>
+            <a href="#" class="nav-item save-btn"><i class="fas fa-save"></i> Save</a>
+            <a href="#" class="nav-item settings-btn"><i class="fas fa-cog"></i> Settings</a>
+            <hr>
+            <a href="#" class="nav-item" id="open-file-btn"><i class="fas fa-folder-open"></i> Open</a> 
+            <a href="#" class="nav-item" data-action="reset"><i class="fas fa-undo"></i> Reset</a>
+            <a href="#" class="nav-item"><i class="fas fa-history"></i> Versions</a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <p>Vordocants</p>
+            <p>SadErolic...</p>
+        </div>
+    </aside>
+
+    <div class="main-content">
+        
+        <header class="editor-header">
+            <div class="header-left">
+                <span class="pen-title">Untitled Pen</span>
+            </div>
+            <div class="header-right">
+                <button class="header-btn save-btn">Save</button>
+                <button class="header-btn run-btn">Run</button>
+                <button class="header-btn settings-btn">Settings</button>
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </header>
+
+        <main class="workspace-grid" data-layout="grid">
+            
+            <div class="code-stack">
+                <div class="editor-panel html-panel">
+                    <div class="panel-header tab-html">HTML <span class="language-name">(CodeBase)</span></div>
+                    <textarea id="html-editor" spellcheck="false" class="code-input" style="font-size: 14px;">
+<div class="content-box">
+  <h1>Welcome to Christmas Log 1.0</h1>
+  <p>Happy holiday!</p>
+</div>
+                    </textarea>
+                </div>
+                
+                <div class="editor-panel css-panel">
+                    <div class="panel-header tab-css">CSS <span class="language-name">(Stylesheet)</span></div>
+                    <textarea id="css-editor" spellcheck="false" class="code-input" style="font-size: 14px;">
+body {
+  background: #282a36;
+  color: #f8f8f2;
+  font-family: sans-serif;
+}
+.content-box {
+  padding: 20px;
+  background: #333;
+  border-radius: 5px;
+}
+                    </textarea>
+                </div>
+                
+                <div class="editor-panel js-panel">
+                    <div class="panel-header tab-js">JavaScript <span class="language-name">(Runtime)</span></div>
+                    <textarea id="js-editor" spellcheck="false" class="code-input" style="font-size: 14px;">
+// Tip: To see the Christmas theme in action,
+// go to Settings > Appearance and select it!
+console.log("AX-Editor v2.0 Initialized.");
+                    </textarea>
+                </div>
+            </div>
+            <div class="preview-panel">
+                <div class="panel-header preview-title">Result</div>
+                <iframe id="live-preview" class="live-preview-window"></iframe>
+            </div>
+            
+        </main>
+    </div>
+
+    <div id="settings-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-btn" data-action="close-settings">&times;</button>
+            <h2>Editor Settings</h2>
+            
+            <div class="setting-group">
+                <h3>Project Details</h3>
+                <div class="setting-item">
+                    <label for="project-name-input">Project Name:</label>
+                    <input type="text" id="project-name-input" value="Untitled Pen"> 
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <h3>Appearance</h3>
+                <div class="setting-item">
+                    <label for="theme-select">Theme:</label>
+                    <select id="theme-select">
+                        <option value="dark">Dark (Black & Gold)</option>
+                        <option value="light">Light (Clean)</option>
+                        <option value="christmas">Christmas (Red & Green) 🔥</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <h3>Code Display</h3>
+                <div class="setting-item">
+                    <label for="layout-select">Editor Layout:</label>
+                    <select id="layout-select">
+                        <option value="grid">Grid View (2x2)</option>
+                        <option value="split">Side-by-Side (Code Left, Preview Right)</option>
+                        <option value="full-preview">Full Preview</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label for="font-size-select">Font Size:</label>
+                    <select id="font-size-select">
+                        <option value="14px">Medium (14px)</option>
+                        <option value="12px">Small (12px)</option>
+                        <option value="16px">Large (16px)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="modal-apply-btn" data-action="apply-settings">Apply Changes</button>
+        </div>
+    </div>
+
+    <input type="file" id="file-input" accept=".html, .css, .js" style="display: none;">
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,441 @@
+/*
+=====================================================
+AX-Editor - Consolidated Themes & Layout
+=====================================================
+*/
+
+:root {
+    /* --- DARK THEME VARIABLES (Default) --- */
+    --bg-main: #141519;        
+    --bg-sidebar: #282a36;     
+    --bg-editor: #1E1F26;      
+    --color-gold-accent: #FFD700; 
+    --color-text-primary: #F8F8F2; 
+    --color-text-secondary: #AAAAAA; 
+    --color-border: #44475A;    
+
+    /* --- LIGHT THEME VARIABLES --- */
+    --light-bg-main: #FFFFFF;
+    --light-bg-sidebar: #EEEEEE;
+    --light-bg-editor: #F8F8F8;
+    --light-color-text-primary: #333333;
+    --light-color-text-secondary: #666666;
+    --light-color-border: #CCCCCC;
+
+    /* --- CHRISTMAS THEME VARIABLES --- */
+    --christmas-bg-main: #A83232;       
+    --christmas-bg-sidebar: #004D40;    
+    --christmas-bg-editor: #263238;     
+    --christmas-color-text-primary: #F0F4C3; 
+    --christmas-color-text-secondary: #C8E6C9; 
+    --christmas-color-accent: #FFEB3B; 
+    --christmas-color-border: #80CBC4;  
+
+
+    --font-code: 'Roboto Mono', monospace;
+    --font-ui: 'Inter', sans-serif;
+    --sidebar-width: 150px;
+}
+
+/* --- THEME OVERRIDES --- */
+body[data-theme="light"] {
+    --bg-main: var(--light-bg-main);
+    --bg-sidebar: var(--light-bg-sidebar);
+    --bg-editor: var(--light-bg-editor);
+    --color-text-primary: var(--light-color-text-primary);
+    --color-text-secondary: var(--light-color-text-secondary);
+    --color-border: var(--light-color-border);
+}
+
+body[data-theme="christmas"] {
+    --bg-main: var(--christmas-bg-main);
+    --bg-sidebar: var(--christmas-bg-sidebar);
+    --bg-editor: var(--christmas-bg-editor);
+    --color-text-primary: var(--christmas-color-text-primary);
+    --color-text-secondary: var(--christmas-color-text-secondary);
+    --color-border: var(--christmas-color-border);
+    --color-gold-accent: var(--christmas-color-accent); 
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-ui);
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--bg-main);
+    transition: background-color 0.3s;
+}
+
+/* --- 1. SIDEBAR --- */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--bg-sidebar);
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    border-right: 1px solid var(--color-border);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    padding: 0 15px 20px 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.logo-icon {
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--bg-editor); 
+    background-color: var(--color-gold-accent);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.logo-title {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--color-gold-accent);
+}
+
+.side-nav {
+    flex-grow: 1;
+    padding: 0 10px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    font-size: 0.9em;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-item i {
+    margin-right: 10px;
+    width: 18px;
+}
+
+.nav-item:hover {
+    background-color: var(--bg-main);
+    color: var(--color-text-primary);
+}
+
+.nav-item.active {
+    background-color: var(--color-gold-accent);
+    color: var(--bg-sidebar);
+    font-weight: 600;
+}
+
+body[data-theme="christmas"] .nav-item.active {
+    background-color: var(--christmas-color-accent);
+    color: var(--christmas-bg-sidebar);
+}
+
+
+.sidebar hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 15px 0;
+}
+
+.sidebar-footer {
+    padding: 15px;
+    font-size: 0.7em;
+    color: var(--color-text-secondary);
+}
+.sidebar-footer p {
+    margin: 3px 0;
+}
+
+
+/* --- 2. MAIN CONTENT AREA & HEADER --- */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-main);
+}
+
+.editor-header {
+    background-color: var(--bg-sidebar);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.pen-title {
+    font-size: 1em;
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.header-btn {
+    background-color: var(--bg-editor);
+    color: var(--color-gold-accent);
+    border: 1px solid var(--color-gold-accent);
+    padding: 6px 15px;
+    margin-left: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s;
+}
+
+.header-btn:hover {
+    background-color: var(--color-gold-accent);
+    color: var(--bg-editor);
+}
+
+.search-icon {
+    color: var(--color-text-secondary);
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* --- 3. WORKSPACE GRID (2x2 Grid is the default) --- */
+.workspace-grid {
+    flex-grow: 1;
+    display: grid;
+    /* Default: GRID VIEW (2x2) */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px; 
+    background-color: var(--bg-main);
+}
+
+.editor-panel, .preview-panel {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-editor);
+    overflow: hidden;
+}
+
+/* Panel Headers */
+.panel-header {
+    padding: 10px 15px;
+    font-size: 0.9em;
+    font-weight: 700;
+    background-color: var(--bg-sidebar);
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+}
+
+.language-name {
+    font-size: 0.8em;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    margin-left: 5px;
+}
+
+/* Code Input */
+.code-input {
+    flex-grow: 1;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    resize: none;
+    background-color: var(--bg-editor);
+    color: var(--color-text-primary);
+    font-family: var(--font-code);
+    padding: 15px;
+    line-height: 1.6;
+    outline: none;
+    /* Ensure the textarea fills the panel's remaining height after the header */
+    height: calc(100% - 40px); 
+}
+
+/* Preview Section */
+.preview-title {
+    color: var(--color-gold-accent);
+}
+
+.live-preview-window {
+    flex-grow: 1;
+    width: 100%;
+    border: none;
+    background-color: white;
+}
+
+/* --- LAYOUT OVERRIDES --- */
+
+/* NEW: Wrapper for the stacked code panels */
+.code-stack {
+    /* Ensure it doesn't break the default grid layout */
+    display: contents; 
+}
+
+
+/* 1. MODIFIED LAYOUT: SIDE-BY-SIDE (SPLIT) */
+.workspace-grid[data-layout="split"] {
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    grid-template-rows: 1fr; /* Single row */
+}
+
+/* Apply flex stacking to the new code-stack wrapper, making it take the left column */
+.workspace-grid[data-layout="split"] .code-stack {
+    grid-column: 1 / 2; 
+    grid-row: 1 / 2;    
+    display: flex;      
+    flex-direction: column; 
+}
+
+/* Individual code panels inside the stacked wrapper */
+.workspace-grid[data-layout="split"] .html-panel,
+.workspace-grid[data-layout="split"] .css-panel,
+.workspace-grid[data-layout="split"] .js-panel {
+    flex-grow: 1; /* Makes each panel take equal available space */
+    border-bottom: 2px solid var(--bg-main); 
+    overflow: hidden; 
+}
+
+/* The Grid View needs to be explicit about panels in the 2x2 layout, since we introduced .code-stack */
+.workspace-grid[data-layout="grid"] .html-panel {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+.workspace-grid[data-layout="grid"] .css-panel {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+.workspace-grid[data-layout="grid"] .preview-panel {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+.workspace-grid[data-layout="grid"] .js-panel {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+
+/* The preview panel takes the right column */
+.workspace-grid[data-layout="split"] .preview-panel {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2; 
+}
+
+/* 2. LAYOUT: FULL PREVIEW MODE */
+.workspace-grid[data-layout="full-preview"] {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.workspace-grid[data-layout="full-preview"] .html-panel,
+.workspace-grid[data-layout="full-preview"] .css-panel,
+.workspace-grid[data-layout="full-preview"] .js-panel,
+.workspace-grid[data-layout="full-preview"] .code-stack { 
+    display: none;
+}
+
+.workspace-grid[data-layout="full-preview"] .preview-panel {
+    /* Preview takes the single column/row */
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+
+/* --- SETTINGS MODAL STYLING --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--bg-sidebar);
+    padding: 30px;
+    border-radius: 8px;
+    width: 400px;
+    position: relative;
+    border: 1px solid var(--color-gold-accent);
+    color: var(--color-text-primary);
+}
+
+.modal-content h2 {
+    color: var(--color-gold-accent);
+    margin-top: 0;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--color-text-primary);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.setting-group {
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+
+.setting-group h3 {
+    color: var(--color-text-secondary);
+    font-size: 1em;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+label {
+    color: var(--color-text-primary);
+}
+
+select, input[type="text"] { 
+    padding: 8px;
+    background-color: var(--bg-editor);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-family: var(--font-ui);
+    box-sizing: border-box; 
+    width: 55%; 
+}
+
+.modal-apply-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-gold-accent);
+    color: var(--bg-sidebar);
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.2s;
+}
+.modal-apply-btn:hover {
+    background-color: #E5C100;
+}
